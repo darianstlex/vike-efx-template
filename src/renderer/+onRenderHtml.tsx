@@ -22,7 +22,7 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext): ReturnType<O
   }
 
   const title = getPageTitle(pageContext);
-  const desc = pageContext.data?.description || pageContext.config.description || 'Motorway Move';
+  const desc = pageContext.data?.description || pageContext.config.description || 'Vike Demo';
 
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">
