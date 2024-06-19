@@ -1,7 +1,7 @@
-import { queue } from './data';
+import { addToQueueFx } from './model.server';
 
 export const onUpdate = async () => {
-  queue.push(Math.floor(Math.random() * 900) + 100);
-  console.log('SERVER: ', JSON.stringify(queue)); // eslint-disable-line
-  return { data: queue };
+  const data = await addToQueueFx();
+  console.log('SERVER: ', JSON.stringify(data)); // eslint-disable-line
+  return { data };
 };
