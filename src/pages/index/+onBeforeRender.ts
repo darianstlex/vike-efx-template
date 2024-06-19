@@ -1,11 +1,13 @@
-import { allSettled, fork, serialize } from 'effector';
-import type { PageContext } from 'vike/types';
+import './model.server';
 
+import { allSettled, fork, serialize } from 'effector';
+
+import { pageStarted } from './+pageStarted';
 import { queue } from './data';
 
-export const onBeforeRender = async (pageContext: PageContext) => {
+export const onBeforeRender = async () => {
   const scope = fork();
-  await allSettled<any>(pageContext.config.pageStarted!, { scope });
+  await allSettled(pageStarted, { scope });
   return {
     pageContext: {
       scope,
