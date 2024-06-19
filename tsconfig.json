@@ -20,6 +20,8 @@
       "@services/*": ["./src/services/*"],
       "@components": ["./src/components"],
       "@components/*": ["./src/components/*"],
+      "@features": ["./src/features"],
+      "@features/*": ["./src/features/*"],
       "@utilities": ["./src/utilities"],
       "@utilities/*": ["./src/utilities/*"],
     }
