@@ -1,12 +1,15 @@
+import './model.server';
+
 import { allSettled, fork, serialize } from 'effector';
 
+import { dbService } from '@features/db';
+
 import { pageStarted } from './+pageStarted';
-import { getQueueFx } from './model.server';
 
 export const onBeforeRender = async () => {
   const scope = fork();
   await allSettled(pageStarted, { scope });
-  const queue = await getQueueFx();
+  const queue = await dbService.getQueueFx();
   return {
     pageContext: {
       scope,

@@ -69,6 +69,7 @@ const config = defineConfig(() => ({
       '@engine': fileURLToPath(new URL('./src/renderer', import.meta.url)),
       '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
       '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
+      '@features': fileURLToPath(new URL('./src/features', import.meta.url)),
       '@services': fileURLToPath(new URL('./src/services', import.meta.url)),
       '@utilities': fileURLToPath(new URL('./src/utilities', import.meta.url)),
     },
