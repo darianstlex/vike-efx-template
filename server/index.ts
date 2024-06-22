@@ -13,7 +13,13 @@ const isProduction = process.env.NODE_ENV === 'production';
 async function connectAssets(app: express.Application) {
   if (isProduction) {
     const serve = (await import('sirv')).default;
-    app.use(serve(`${root}/dist/client`));
+    app.use(
+      serve(`${root}/dist/client`, {
+        etag: true,
+        immutable: true,
+        maxAge: 31536000,
+      }),
+    );
   } else {
     const vite = await import('vite');
     const viteDevMiddleware = (
