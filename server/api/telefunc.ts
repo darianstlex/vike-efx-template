@@ -1,8 +1,10 @@
 import type express from 'express';
-import { telefunc } from 'telefunc';
+import { config, telefunc } from 'telefunc';
+
+config.telefuncUrl = '/api/_intercom';
 
 export async function connectTelefunc(app: express.Application) {
-  app.all('/_telefunc', async (req, res) => {
+  app.all('/api/_intercom', async (req, res) => {
     const context = {};
     const httpResponse = await telefunc({
       url: req.originalUrl,
