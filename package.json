@@ -30,7 +30,7 @@
 		"react-dom": "^18.3.1",
 		"react-use": "^17.5.0",
 		"sirv": "^2.0.4",
-		"telefunc": "^0.1.75",
+		"telefunc": "^0.1.76",
 		"ts-node": "^10.9.2"
 	},
 	"devDependencies": {
@@ -44,7 +44,7 @@
 		"@types/express": "^4.17.21",
 		"@types/istanbul-lib-coverage": "^2.0.6",
 		"@types/lodash-es": "^4.17.12",
-		"@types/node": "^20.14.9",
+		"@types/node": "^20.14.10",
 		"@types/react": "^18.3.3",
 		"@types/react-dom": "^18.3.0",
 		"@typescript-eslint/eslint-plugin": "^7.11.0",
@@ -61,7 +61,7 @@
 		"eslint-plugin-react": "^7.34.2",
 		"eslint-plugin-react-hooks": "^4.6.2",
 		"eslint-plugin-react-refresh": "^0.4.7",
-		"eslint-plugin-simple-import-sort": "^12.1.0",
+		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"eslint-plugin-sort-destructure-keys": "^2.0.0",
 		"eslint-plugin-typescript-sort-keys": "^3.2.0",
 		"husky": "^9.0.11",
@@ -73,8 +73,8 @@
 		"sass": "^1.77.6",
 		"start-server-and-test": "^2.0.4",
 		"typescript": "^5.5.3",
-		"vike": "^0.4.177",
-		"vite": "^5.3.2",
+		"vike": "^0.4.178",
+		"vite": "^5.3.3",
 		"vite-plugin-istanbul": "^6.0.2"
 	},
 	"engines": {
