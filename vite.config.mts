@@ -54,10 +54,11 @@ const config = defineConfig(() => ({
     mdx(),
     telefunc(),
     react(),
-    istanbul({
-      cypress: true,
-      requireEnv: true,
-    }),
+    ...(process.env.USE_BABEL_PLUGIN_ISTANBUL ? [istanbul({
+      include: 'src/*',
+      exclude: ['node_modules', 'tests/'],
+      extension: [ '.js', '.ts','.tsx' ],
+    })] : []),
     visualizer({
       filename: 'visualizer.html',
       template: 'flamegraph',
