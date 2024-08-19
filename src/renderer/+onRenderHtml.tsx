@@ -13,10 +13,11 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext): ReturnType<O
     pageHtml = '';
   } else {
     // SSR / HTML-only
-    const { Page, pageProps } = pageContext;
+    const { Page, data } = pageContext;
+
     pageHtml = ReactDOMServer.renderToString(
       <PageShell pageContext={pageContext}>
-        <Page {...pageProps} />
+        <Page {...(data?.pageProps ? data.pageProps : {})} />
       </PageShell>,
     );
   }
@@ -41,6 +42,7 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext): ReturnType<O
   return {
     documentHtml,
     pageContext: {
+      // scopeValues: pageContext.scope ? serialize(pageContext.scope) : {},
       // We can add custom pageContext properties here, see https://vike.dev/pageContext#custom
     },
   };

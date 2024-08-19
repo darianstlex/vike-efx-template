@@ -4,7 +4,7 @@ import type { Config } from 'vike/types';
 export default {
   // https://vike.dev/clientRouting
   clientRouting: true,
-  passToClient: ['pageProps', 'scopeSerialized'],
+  passToClient: ['pageProps', 'scopeValues'],
   prerender: false,
   // https://vike.dev/meta
   meta: {

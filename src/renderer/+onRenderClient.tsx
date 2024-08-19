@@ -1,20 +1,31 @@
 // https://vike.dev/onRenderClient
-import { fork } from 'effector';
+import { allSettled, fork, serialize } from 'effector';
 import ReactDOM from 'react-dom/client';
 import type { OnRenderClientAsync } from 'vike/types';
+
+import { appService } from '@services/app';
 
 import { getPageTitle } from './getPageTitle';
 import { PageShell } from './PageShell';
 
 let root: ReactDOM.Root;
 export const onRenderClient: OnRenderClientAsync = async (pageContext): ReturnType<OnRenderClientAsync> => {
-  const { Page, pageProps } = pageContext;
+  const { Page, data } = pageContext;
 
-  pageContext.scope = fork({ values: pageContext.scopeSerialized });
+  window.VIKE_EFX_SCOPE = fork({
+    values: {
+      ...(window.VIKE_EFX_SCOPE ? serialize(window.VIKE_EFX_SCOPE) : {}),
+      ...pageContext.scopeValues,
+    },
+  });
+
+  pageContext.scope = window.VIKE_EFX_SCOPE;
+
+  await allSettled(appService.appStarted, { scope: pageContext.scope });
 
   const page = (
     <PageShell pageContext={pageContext}>
-      <Page {...pageProps} />
+      <Page {...(data?.pageProps ? data.pageProps : {})} />
     </PageShell>
   );
 

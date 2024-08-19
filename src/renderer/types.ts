@@ -13,7 +13,7 @@ declare global {
         /** Value for <meta name="description"> defined statically */
         description?: string;
         /** Page started effector event */
-        pageStarted?: EventCallable<unknown>;
+        pageStarted?: EventCallable<{ data: unknown; params: Record<string, string> }>;
         /** Value for <title> defined statically by /pages/some-page/+title.js (or by `export default { title }` in /pages/some-page/+config.js) */
         title?: string;
       };
@@ -21,13 +21,14 @@ declare global {
       data?: {
         /** Value for <meta name="description"> defined dynamically */
         description?: string;
+        /** page props passed from the data hook */
+        pageProps?: Record<string, unknown>;
         /** Value for <title> defined dynamically by /pages/some-page/+data.js */
         title?: string;
       };
       headers: Record<string, string>;
-      pageProps?: Record<string, unknown>;
       scope?: Scope;
-      scopeSerialized?: Record<string, unknown>;
+      scopeValues?: Record<string, unknown>;
     }
   }
 }

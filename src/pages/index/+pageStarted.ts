@@ -1,3 +1,3 @@
-import { createEvent } from 'effector';
+import { createPageStart } from '@utilities/events';
 
-export const pageStarted = createEvent();
+export const pageStarted = createPageStart();
