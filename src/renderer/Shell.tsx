@@ -3,7 +3,7 @@ import { Provider } from 'effector-react';
 import React, { useEffect } from 'react';
 import type { PageContext } from 'vike/types';
 
-import { PageContextProvider } from './usePageContext';
+import { PageContextProvider } from '@utilities/usePageContext';
 
 import './styles/index.scss';
 
