@@ -4,7 +4,7 @@ import { dangerouslySkipEscape, escapeInject } from 'vike/server';
 import type { OnRenderHtmlAsync } from 'vike/types';
 
 import { getPageTitle } from './getPageTitle';
-import { PageShell } from './PageShell';
+import { Shell } from './Shell';
 
 export const onRenderHtml: OnRenderHtmlAsync = async (pageContext): ReturnType<OnRenderHtmlAsync> => {
   let pageHtml;
@@ -16,9 +16,9 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext): ReturnType<O
     const { Page, data } = pageContext;
 
     pageHtml = ReactDOMServer.renderToString(
-      <PageShell pageContext={pageContext}>
+      <Shell pageContext={pageContext}>
         <Page {...(data?.pageProps ? data.pageProps : {})} />
-      </PageShell>,
+      </Shell>,
     );
   }
 

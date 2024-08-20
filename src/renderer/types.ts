@@ -12,7 +12,9 @@ declare global {
         PageWrapper?: ({ children }: { children: ReactNode }) => ReactElement;
         /** Value for <meta name="description"> defined statically */
         description?: string;
-        /** Page started effector event */
+        /** Effector Event - Page initiated on server */
+        pageInitiated?: EventCallable<{ data: unknown; params: Record<string, string> }>;
+        /** Effector Event - Page started on client */
         pageStarted?: EventCallable<{ data: unknown; params: Record<string, string> }>;
         /** Value for <title> defined statically by /pages/some-page/+title.js (or by `export default { title }` in /pages/some-page/+config.js) */
         title?: string;

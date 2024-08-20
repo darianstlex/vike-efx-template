@@ -11,7 +11,9 @@ export const Page = ({ queue }: { queue: number[] }) => {
       {data}
       <Queue init={queue} />
       <a href={`/example/${random}`}>Example: {random}</a>
-      <a href="mdx">Example MDX page</a>
+      <a href="mdx" target="_blank">
+        Example MDX page
+      </a>
       <button onClick={inc}>Counter: {counter}</button>
     </div>
   );

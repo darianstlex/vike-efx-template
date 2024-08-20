@@ -4,7 +4,7 @@ import type { Config } from 'vike/types';
 export default {
   // https://vike.dev/clientRouting
   clientRouting: true,
-  passToClient: ['pageProps', 'scopeValues'],
+  passToClient: ['scopeValues'],
   prerender: false,
   // https://vike.dev/meta
   meta: {
@@ -20,9 +20,13 @@ export default {
     PageWrapper: {
       env: { server: true, client: true },
     },
-    // page start event
+    // server page initiate event
+    pageInitiated: {
+      env: { server: true, client: false },
+    },
+    // client page start event
     pageStarted: {
-      env: { server: true, client: true },
+      env: { server: false, client: true },
     },
   },
   hydrationCanBeAborted: true,

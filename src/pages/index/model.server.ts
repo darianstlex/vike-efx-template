@@ -1,10 +1,10 @@
 import { sample } from 'effector';
 
-import { pageStarted } from './+pageStarted';
+import { pageInitiated } from './+pageInitiated';
 import { $data } from './model';
 
 sample({
-  clock: pageStarted,
+  clock: pageInitiated,
   fn: () => 'SOME DATA',
   target: $data,
 });

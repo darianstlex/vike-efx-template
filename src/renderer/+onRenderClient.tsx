@@ -6,7 +6,7 @@ import type { OnRenderClientAsync } from 'vike/types';
 import { appService } from '@services/app';
 
 import { getPageTitle } from './getPageTitle';
-import { PageShell } from './PageShell';
+import { Shell } from './Shell';
 
 let root: ReactDOM.Root;
 export const onRenderClient: OnRenderClientAsync = async (pageContext): ReturnType<OnRenderClientAsync> => {
@@ -21,12 +21,14 @@ export const onRenderClient: OnRenderClientAsync = async (pageContext): ReturnTy
 
   pageContext.scope = window.VIKE_EFX_SCOPE;
 
-  await allSettled(appService.appStarted, { scope: pageContext.scope });
+  if (pageContext.isHydration) {
+    await allSettled(appService.appStarted, { scope: pageContext.scope });
+  }
 
   const page = (
-    <PageShell pageContext={pageContext}>
+    <Shell pageContext={pageContext}>
       <Page {...(data?.pageProps ? data.pageProps : {})} />
-    </PageShell>
+    </Shell>
   );
 
   const container = document.getElementById('react-root');
