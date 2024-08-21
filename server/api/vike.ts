@@ -17,11 +17,11 @@ export async function connectVike(app: express.Application) {
     if (!httpResponse) {
       return next();
     } else {
-      const { body, earlyHints, headers, statusCode } = httpResponse;
+      const { earlyHints, headers, statusCode } = httpResponse;
       if (res.writeEarlyHints) res.writeEarlyHints({ link: earlyHints.map((e) => e.earlyHintLink) }); // early hits are not supported yet
       headers.forEach(([name, value]) => res.setHeader(name, value));
       res.status(statusCode);
-      res.send(body);
+      httpResponse.pipe(res);
     }
   });
 }
