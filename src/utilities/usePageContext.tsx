@@ -15,7 +15,6 @@ export const PageContextProvider = ({
 };
 
 /** https://vike.dev/usePageContext */
-// eslint-disable-next-line react-refresh/only-export-components
 export const usePageContext = () => {
   return useContext(Context);
 };

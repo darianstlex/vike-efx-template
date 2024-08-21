@@ -1,9 +1,8 @@
 // https://vike.dev/onRenderClient
+import { appService } from '@services/app';
 import { allSettled, fork, serialize } from 'effector';
 import ReactDOM from 'react-dom/client';
 import type { OnRenderClientAsync } from 'vike/types';
-
-import { appService } from '@services/app';
 
 import { getPageTitle } from './getPageTitle';
 import { Shell } from './Shell';

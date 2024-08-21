@@ -1,11 +1,10 @@
+import './styles/index.scss';
+
+import { PageContextProvider } from '@utilities/usePageContext';
 import { allSettled } from 'effector';
 import { Provider } from 'effector-react';
 import React, { useEffect } from 'react';
 import type { PageContext } from 'vike/types';
-
-import { PageContextProvider } from '@utilities/usePageContext';
-
-import './styles/index.scss';
 
 export const Shell = ({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) => {
   const PageWrapper = pageContext.config.PageWrapper;
