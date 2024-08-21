@@ -72,7 +72,20 @@ export default tseslint.config(
       semi: ['error', 'always'],
       'prettier/prettier': ['error', {}],
       'react/react-in-jsx-scope': 'off',
-      'simple-import-sort/imports': 'error',
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [
+            ['^\\0'],
+            ['^[a-z]', '^[A-Z]'],
+            ['^@', '^\\w'],
+            ['^\\u0000'],
+            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+            ['^.+\\.s?css$'],
+          ],
+        },
+      ],
       'simple-import-sort/exports': 'error',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-explicit-any': 'off',
