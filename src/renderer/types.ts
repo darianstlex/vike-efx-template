@@ -1,5 +1,6 @@
 import type { EventCallable, Scope } from 'effector';
 import type { ReactElement, ReactNode } from 'react';
+import type { PageContextServer } from 'vike/types';
 
 // https://vike.dev/pageContext#typescript
 declare global {
@@ -12,8 +13,12 @@ declare global {
         PageWrapper?: ({ children }: { children: ReactNode }) => ReactElement;
         /** Value for <meta name="description"> defined statically */
         description?: string;
+        /** Hook that runs before page init */
+        onAfterInit?: (pageContext: PageContextServer) => Promise<void>;
+        /** Hook that runs before page init */
+        onBeforeInit?: (pageContext: PageContextServer) => Promise<void>;
         /** Effector Event - Page initiated on server */
-        pageInitiated?: EventCallable<{ data: unknown; params: Record<string, string> }>;
+        pageInitiated?: EventCallable<PageContextServer>;
         /** Effector Event - Page started on client */
         pageStarted?: EventCallable<{ data: unknown; params: Record<string, string> }>;
         /** Value for <title> defined statically by /pages/some-page/+title.js (or by `export default { title }` in /pages/some-page/+config.js) */

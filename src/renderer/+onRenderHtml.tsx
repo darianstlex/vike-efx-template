@@ -7,20 +7,15 @@ import { getPageTitle } from './getPageTitle';
 import { Shell } from './Shell';
 
 export const onRenderHtml: OnRenderHtmlAsync = async (pageContext): ReturnType<OnRenderHtmlAsync> => {
-  let pageHtml;
-  if (!pageContext.Page) {
-    // SPA
-    pageHtml = '';
-  } else {
-    // SSR / HTML-only
-    const { Page, data } = pageContext;
+  const { Page, data } = pageContext;
 
-    pageHtml = ReactDOMServer.renderToString(
-      <Shell pageContext={pageContext}>
-        <Page {...(data?.pageProps ? data.pageProps : {})} />
-      </Shell>,
-    );
-  }
+  const pageHtml = Page
+    ? ReactDOMServer.renderToString(
+        <Shell pageContext={pageContext}>
+          <Page {...(data?.pageProps ? data.pageProps : {})} />
+        </Shell>,
+      )
+    : '';
 
   const title = getPageTitle(pageContext);
   const desc = pageContext.data?.description || pageContext.config.description || 'Vike Demo';
@@ -42,7 +37,6 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext): ReturnType<O
   return {
     documentHtml,
     pageContext: {
-      // scopeValues: pageContext.scope ? serialize(pageContext.scope) : {},
       // We can add custom pageContext properties here, see https://vike.dev/pageContext#custom
     },
   };

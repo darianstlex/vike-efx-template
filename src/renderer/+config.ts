@@ -20,6 +20,14 @@ export default {
     PageWrapper: {
       env: { server: true, client: true },
     },
+    // runs before page init
+    onBeforeInit: {
+      env: { server: true, client: false },
+    },
+    // runs after page init
+    onAfterInit: {
+      env: { server: true, client: false },
+    },
     // server page initiate event
     pageInitiated: {
       env: { server: true, client: false },
