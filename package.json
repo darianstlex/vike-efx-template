@@ -28,13 +28,13 @@
     "react-dom": "^18.3.1",
     "react-use": "^17.5.1",
     "sirv": "^2.0.4",
-    "telefunc": "^0.1.76",
+    "telefunc": "^0.1.77",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@eslint/js": "^9.9.0",
+    "@eslint/js": "^9.9.1",
     "@mdx-js/rollup": "^3.0.1",
     "@playwright/experimental-ct-react": "^1.46.1",
     "@playwright/test": "^1.46.1",
@@ -49,7 +49,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
-    "eslint": "^9.9.0",
+    "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.0",
@@ -66,7 +66,7 @@
     "start-server-and-test": "^2.0.5",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.2.0",
-    "vike": "^0.4.191",
+    "vike": "^0.4.193",
     "vite": "^5.4.2",
     "vite-plugin-istanbul": "^6.0.2"
   },
