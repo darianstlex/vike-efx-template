@@ -1,6 +1,6 @@
 ## Vike + React + Effector + SSR
 
-This template is based on Vike + Effector.
+This template is based on Vike + React + Effector.
 
 `vike-react` is not used to have better control over rendering mechanism. 
 
