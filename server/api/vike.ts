@@ -1,7 +1,7 @@
 import type express from 'express';
 import { renderPage } from 'vike/server';
 
-export async function connectVike(app: express.Application) {
+export const connectVike = (app: express.Application) => {
   app.get('*', async (req, res, next) => {
     const pageContextInit = {
       cookies: req.cookies,
@@ -24,4 +24,4 @@ export async function connectVike(app: express.Application) {
       httpResponse.pipe(res);
     }
   });
-}
+};

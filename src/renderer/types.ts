@@ -13,9 +13,9 @@ declare global {
         PageWrapper?: ({ children }: { children: ReactNode }) => ReactElement;
         /** Value for <meta name="description"> defined statically */
         description?: string;
-        /** Hook that runs before page init */
+        /** Hook that runs after the page init event */
         onAfterInit?: (pageContext: PageContextServer) => Promise<void>;
-        /** Hook that runs before page init */
+        /** Hook that runs before the page init event */
         onBeforeInit?: (pageContext: PageContextServer) => Promise<void>;
         /** Effector Event - Page initiated on server */
         pageInitiated?: EventCallable<PageContextServer>;

@@ -3,7 +3,7 @@ import { config, telefunc } from 'telefunc';
 
 config.telefuncUrl = '/api/_intercom';
 
-export async function connectTelefunc(app: express.Application) {
+export const connectTelefunc = (app: express.Application) => {
   app.all('/api/_intercom', async (req, res) => {
     const context = {};
     const httpResponse = await telefunc({
@@ -15,4 +15,4 @@ export async function connectTelefunc(app: express.Application) {
     const { body, contentType, statusCode } = httpResponse;
     res.status(statusCode).type(contentType).send(body);
   });
-}
+};
