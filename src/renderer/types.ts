@@ -1,6 +1,6 @@
 import type { EventCallable, Scope } from 'effector';
 import type { ReactElement, ReactNode } from 'react';
-import type { PageContextServer } from 'vike/types';
+import type { PageContextClient, PageContextServer } from 'vike/types';
 
 // https://vike.dev/pageContext#typescript
 declare global {
@@ -19,7 +19,15 @@ declare global {
         onBeforeInit?: (pageContext: PageContextServer) => Promise<void>;
         /** Effector Event - Page initiated on server */
         pageInitiated?: EventCallable<PageContextServer>;
-        /** Effector Event - Page started on client */
+        /**
+         * Hook that runs before the page start, on client, before render.
+         * On UI changes will cause diff to server/client render
+         */
+        onBeforeStart?: (pageContext: PageContextClient) => Promise<void>;
+        /**
+         * Effector Event - Page started on client
+         * Runs after the first render
+         */
         pageStarted?: EventCallable<{ data: unknown; params: Record<string, string> }>;
         /** Value for <title> defined statically by /pages/some-page/+title.js (or by `export default { title }` in /pages/some-page/+config.js) */
         title?: string;

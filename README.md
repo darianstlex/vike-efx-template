@@ -14,8 +14,9 @@ Data flow:
 `+onBeforeInit`: hook, fires before page init event on server side, have access to the effector scope\
 `+pageInitiated`: effector event, fires on page init on server side.\
 `+onAfterInit`: hook, fires after page init event on server side, have access to the effector scope\
-`appStarted`: effector event, fires on app start on client side.\
-`+pageStarted`: effector event, fires on page start on client side.
+`appStarted`: effector event, fires on app start on client side. On UI changes will cause diff in server/client render\
+`+onBeforeStart`: hook, fires before page start event on client side, have access to the effector scope. On UI changes will cause diff in server/client render\
+`+pageStarted`: effector event, fires on page start on client side. Runs after the first render.
 
 Development:
 

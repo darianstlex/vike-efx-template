@@ -11,6 +11,7 @@ import { Shell } from './Shell';
 let root: ReactDOM.Root;
 export const onRenderClient: OnRenderClientAsync = async (pageContext): ReturnType<OnRenderClientAsync> => {
   const { Page, data } = pageContext;
+  const { onBeforeStart } = pageContext.config;
 
   window.VIKE_EFX_SCOPE = fork({
     values: {
@@ -23,6 +24,10 @@ export const onRenderClient: OnRenderClientAsync = async (pageContext): ReturnTy
 
   if (pageContext.isHydration) {
     await allSettled(appService.appStarted, { scope: pageContext.scope });
+  }
+
+  if (onBeforeStart) {
+    await onBeforeStart(pageContext);
   }
 
   const page = (

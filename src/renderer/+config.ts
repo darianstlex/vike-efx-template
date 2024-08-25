@@ -32,6 +32,10 @@ export default {
     pageInitiated: {
       env: { server: true, client: false },
     },
+    // runs before page start
+    onBeforeStart: {
+      env: { server: false, client: true },
+    },
     // client page start event
     pageStarted: {
       env: { server: false, client: true },
