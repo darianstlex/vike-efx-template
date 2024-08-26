@@ -1,10 +1,3 @@
-import type { ReactNode } from 'react';
+import { LayoutOne } from '@layouts/LayoutOne';
 
-export const Layout = ({ children }: { children: ReactNode }) => {
-  return (
-    <div style={{ paddingBottom: 24 }}>
-      Global Layout
-      {children}
-    </div>
-  );
-};
+export const Layout = LayoutOne;
