@@ -16,8 +16,12 @@ export default {
     description: {
       env: { server: true },
     },
-    // define 'PageWrapper' component
-    PageWrapper: {
+    // define 'Wrapper' component
+    Wrapper: {
+      env: { server: true, client: true },
+    },
+    // define 'Layout' component
+    Layout: {
       env: { server: true, client: true },
     },
     // runs before page init

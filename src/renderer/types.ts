@@ -10,7 +10,6 @@ declare global {
       /** https://vike.dev/render */
       abortReason?: string;
       config: {
-        PageWrapper?: ({ children }: { children: ReactNode }) => ReactElement;
         /** Value for <meta name="description"> defined statically */
         description?: string;
         /** Hook that runs after the page init event */
@@ -31,6 +30,10 @@ declare global {
         pageStarted?: EventCallable<{ data: unknown; params: Record<string, string> }>;
         /** Value for <title> defined statically by /pages/some-page/+title.js (or by `export default { title }` in /pages/some-page/+config.js) */
         title?: string;
+        /** Page layout component */
+        Layout?: ({ children }: { children: ReactNode }) => ReactElement;
+        /** Page wrapper component */
+        Wrapper?: ({ children }: { children: ReactNode }) => ReactElement;
       };
       cookies: Record<string, string>;
       data?: {

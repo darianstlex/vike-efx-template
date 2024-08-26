@@ -10,13 +10,18 @@ All standard hooks can be used, plus some extra to control effector values
 
 Data flow:
 
-`+data`: vike hook for initial data preparation if needed\
-`+onBeforeInit`: hook, fires before page init event on server side, have access to the effector scope\
-`+pageInitiated`: effector event, fires on page init on server side.\
-`+onAfterInit`: hook, fires after page init event on server side, have access to the effector scope\
+`+data.ts`: vike hook for initial data preparation if needed\
+`+onBeforeInit.ts`: hook, fires before page init event on server side, have access to the effector scope\
+`+pageInitiated.ts`: effector event, fires on page init on server side.\
+`+onAfterInit.ts`: hook, fires after page init event on server side, have access to the effector scope\
 `appStarted`: effector event, fires on app start on client side. On UI changes will cause diff in server/client render\
-`+onBeforeStart`: hook, fires before page start event on client side, have access to the effector scope. On UI changes will cause diff in server/client render\
-`+pageStarted`: effector event, fires on page start on client side. Runs after the first render.
+`+onBeforeStart.ts`: hook, fires before page start event on client side, have access to the effector scope. On UI changes will cause diff in server/client render\
+`+pageStarted.ts`: effector event, fires on page start on client side. Runs after the first render.
+
+Page Components:
+
+`+Layout.tsx`: custom layout component to override the global one\
+`+Wrapper.tsx`: additional page wrapper
 
 Development:
 

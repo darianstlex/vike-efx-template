@@ -8,7 +8,8 @@ import { PageContextProvider } from '@utilities/usePageContext';
 import './styles/index.scss';
 
 export const Shell = ({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) => {
-  const PageWrapper = pageContext.config.PageWrapper;
+  const Layout = pageContext.config.Layout;
+  const Wrapper = pageContext.config.Wrapper;
   useEffect(() => {
     const firePageStarted = async () => {
       const { pageStarted } = pageContext.config;
@@ -26,7 +27,9 @@ export const Shell = ({ children, pageContext }: { children: React.ReactNode; pa
   return (
     <React.StrictMode>
       <PageContextProvider pageContext={pageContext}>
-        <Provider value={pageContext.scope!}>{PageWrapper ? <PageWrapper>{children}</PageWrapper> : children}</Provider>
+        <Provider value={pageContext.scope!}>
+          {Layout ? <Layout>{Wrapper ? <Wrapper>{children}</Wrapper> : children}</Layout> : children}
+        </Provider>
       </PageContextProvider>
     </React.StrictMode>
   );

@@ -1,6 +1,6 @@
 import type { MouseEventHandler, ReactNode } from 'react';
 
-export const PageWrapper = ({ children }: { children: ReactNode }) => {
+export const Wrapper = ({ children }: { children: ReactNode }) => {
   const onHome: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
     window.close();
