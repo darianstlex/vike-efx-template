@@ -1,8 +1,8 @@
 import { createEvent, createStore } from 'effector';
 
 /**
- * AppStarted event - runs oc client side before the actual render, should not
- * be used for UI changes as will cause diff in server/client render
+ * AppStarted event - runs on client side before the actual render, in case
+ * is used for UI changes will cause diff in server/client render
  */
 export const appStarted = createEvent();
 
