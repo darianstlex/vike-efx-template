@@ -28,7 +28,7 @@
     "react-dom": "^18.3.1",
     "react-use": "^17.5.1",
     "sirv": "^2.0.4",
-    "telefunc": "^0.1.77",
+    "telefunc": "^0.1.78",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
